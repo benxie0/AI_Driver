@@ -1,6 +1,5 @@
 from pynput import keyboard
 import numpy as np
-import helperfunctions
 
 #keypress array
 keys = np.zeros(4)
@@ -40,4 +39,6 @@ listener = keyboard.Listener(
 listener.start()
 
 while(1):
-    print(keys)
+    #binary to decimal (record keystrokes 0-15)
+    keycode = keys[0]*1 + keys[1]*2 + keys[2]*4 + keys[3]*8
+    print(keycode)
