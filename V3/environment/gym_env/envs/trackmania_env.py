@@ -72,8 +72,8 @@ class TrackmaniaEnv(gym.Env):
     screen = helperfunctions.capture_screen()
     obs = (screen/255)*(speed[0]+1)/40
 
-    # reward
-    reward = speed[0] + speed[1] + speed[2] #+ accel*5
+    # reward (somewhat normalized)
+    reward = (speed[0]-10.0)/20.0 #+ accel*5
 
     return obs, reward, done, {}
 

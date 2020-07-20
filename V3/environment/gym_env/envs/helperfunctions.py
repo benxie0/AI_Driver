@@ -201,11 +201,11 @@ def trans_index(index):
         releasek(W)
         releasek(A)
     elif (index == 8):
-        # releasek(S)
-        # releasek(D)
-        # releasek(W)
-        # releasek(A)
-        print("")
+        releasek(S)
+        releasek(D)
+        releasek(W)
+        releasek(A)
+        # print("")
 
 def reset():
     pressk(BS)
