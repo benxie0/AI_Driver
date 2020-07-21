@@ -57,9 +57,9 @@ class TrackmaniaEnv(gym.Env):
 
     speed[0] = helperfunctions.getspeed()
     accel = speed[0] - speed[5]
-
+    print("{},{}".format(accel, speed[2]-speed[4]))
     # hopefully detect crash
-    if (accel<-5 and (speed[2]-speed[4]<-2)):
+    if (accel<-5 or (speed[2]-speed[4]<-2)):
       done = True
     else:
       done = False
@@ -90,7 +90,7 @@ class TrackmaniaEnv(gym.Env):
     time.sleep(3)
 
     screen = helperfunctions.capture_screen()
-    obs = (screen/255)*(speed+1)/40
+    obs = (screen/255)*(speed[0]+1)/40
     
     return obs
 
